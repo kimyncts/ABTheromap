@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Détail clone - {{ clone_id }}{% endblock %}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/analyse/styleClone.css' %}">{% endblock %}
+{% block content %}
+<div class="header-clone-downloads">
+  <div class="clone-info">
+    <h2>Détails du clone {{ clone_id }}</h2>
+    <p><strong>Analyse :</strong> {{ analysis.name }}</p>
+  </div>
+  <div class="download-buttons">
+    
+
+    <form action="{% url 'telecharger_excel_clone' analysis.id 'VH' clone_id %}" method="get">
+    
+        <label for="format">Choisir le format :</label>
+        <select name="format" id="format">
+            <option value="excel">Excel (.xlsx)</option>
+            <option value="csv">CSV (.csv)</option>
+        </select>
+        
+        <button type="submit" class="btn-style">Télécharger VH</button>
+    </form>
+
+    <form action="{% url 'telecharger_excel_clone' analysis.id 'VL' clone_id %}" method="get">
+    
+        <label for="format">Choisir le format :</label>
+        <select name="format" id="format">
+            <option value="excel">Excel (.xlsx)</option>
+            <option value="csv">CSV (.csv)</option>
+        </select>
+        
+        <button type="submit" class="btn-style">Télécharger VL</button>
+    </form>
+    
+    <a href="{% url 'telecharger_image' analysis.pk clone_id %}" class="btn-style">Télécharger Diagramme Venn</a>
+  </div>
+</div>
+<div class="sequence-section">
+  <h3>Séquence VH</h3>
+  {% if vh_sequence %}
+    <pre class="sequence-block">{{ vh_sequence }}</pre>
+  {% else %}
+    <p class="no-sequence">Aucune séquence VH trouvée.</p>
+  {% endif %}
+
+  <h3>Séquence VL</h3>
+  {% if vl_sequence %}
+    <pre class="sequence-block">{{ vl_sequence }}</pre>
+  {% else %}
+    <p class="no-sequence">Aucune séquence VL trouvée.</p>
+  {% endif %}
+</div>
+
+
+<div class="venn-section">
+  <h3>Diagramme de Venn des séquences NGS (VH vs VL)</h3>
+  {% if venn_image %}
+      <img src="data:image/png;base64,{{ venn_image }}" alt="Diagramme de Venn VH/VL">
+  {% endif %}
+
+  <div class="venn-buttons">
+    {% if venn_data.vh_only %}
+      <button onclick="toggleDisplay('vh_only')">Voir les séquences VH seules</button>
+    {% endif %}
+    {% if venn_data.vl_only %}
+      <button onclick="toggleDisplay('vl_only')">Voir les séquences VL seules</button>
+    {% endif %}
+    {% if venn_data.both %}
+      <button onclick="toggleDisplay('both')">Voir les séquences Intersection (VH & VL)</button>
+    {% endif %}
+  </div>
+
+  {% if venn_data.vh_only %}
+    <div id="vh_only" style="display:none;">
+      <strong>VH seules :</strong> {{ venn_data.vh_only|join:", " }}
+    </div>
+  {% endif %}
+
+  {% if venn_data.vl_only %}
+    <div id="vl_only" style="display:none;">
+      <strong>VL seules :</strong> {{ venn_data.vl_only|join:", " }}
+    </div>
+  {% endif %}
+
+  {% if venn_data.both %}
+    <div id="both" style="display:none;">
+      <strong>Intersection :</strong> {{ venn_data.both|join:", " }}
+    </div>
+  {% endif %}
+</div>
+<script>
+  function toggleDisplay(id) {
+    var el = document.getElementById(id);
+    el.style.display = (el.style.display === "none") ? "block" : "none";
+  }
+  </script>
+
+<h3>Résultats VH</h3>
+<div class="table-container">
+<table>
+  <tr>
+    <th>qseqid</th><th>sseqid</th><th>Identité (%)</th><th>Longueur</th>
+    <th>Mismatch</th><th>Gap open</th><th>qstart</th><th>qend</th>
+    <th>sstart</th><th>send</th><th>e-value</th><th>Bitscore</th><th>qcovs (%)</th>
+  </tr>
+  {% for r in vh_results %}
+    <tr>
+      <td>{{ r.qseqid }}</td><td>{{ r.sseqid }}</td><td>{{ r.pident }}</td><td>{{ r.length }}</td>
+      <td>{{ r.mismatch }}</td><td>{{ r.gapopen }}</td><td>{{ r.qstart }}</td><td>{{ r.qend }}</td>
+      <td>{{ r.sstart }}</td><td>{{ r.send }}</td><td>{{ r.evalue|stringformat:"e" }}</td><td>{{ r.bitscore }}</td><td>{{ r.qcovs }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+
+
+<h3>Résultats VL</h3>
+<div class="table-container">
+<table>
+  <tr>
+    <th>qseqid</th><th>sseqid</th><th>Identité (%)</th><th>Longueur</th>
+    <th>Mismatch</th><th>Gap open</th><th>qstart</th><th>qend</th>
+    <th>sstart</th><th>send</th><th>e-value</th><th>Bitscore</th><th>qcovs (%)</th>
+  </tr>
+  {% for r in vl_results %}
+    <tr>
+      <td>{{ r.qseqid }}</td><td>{{ r.sseqid }}</td><td>{{ r.pident }}</td><td>{{ r.length }}</td>
+      <td>{{ r.mismatch }}</td><td>{{ r.gapopen }}</td><td>{{ r.qstart }}</td><td>{{ r.qend }}</td>
+      <td>{{ r.sstart }}</td><td>{{ r.send }}</td><td>{{ r.evalue|stringformat:"e" }}</td><td>{{ r.bitscore }}</td><td>{{ r.qcovs }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+<a class="Retour" href="{% url 'resultats_analyse' analysis.pk %}">← Retour aux résultats</a>
+
+{% endblock %}
