@@ -24,12 +24,17 @@ ABTheroMap facilite la comparaison entre des séquences issues de la plateforme 
 
 ## Gallery / Demo
 
-### 1. User Registration
+### User Registration
 
-[![ABTheroMap Registration](docs/images/inscription.png)](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/inscription_ABTheroMap.mp4)
+[<img width="1914" height="973" alt="User Registration" src="https://github.com/user-attachments/assets/3efab123-a899-4ddf-9aad-993b33cb2c08" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/inscription_ABTheroMap.mp4)
 
-### 2. Sequence Analysis
+### Sequence Analysis
 
-[![ABTheroMap Sequence Analysis](docs/images/connexion.png)](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/analyse_ABTheroMap.mp4)
+[<img width="1846" height="808" alt="Sequence Analysis" src="https://github.com/user-attachments/assets/9cabb315-bf48-4cf7-bbae-c700eca7e472" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/analyse_ABTheroMap.mp4)
+
+### User Logout
+
+[<img width="1882" height="807" alt="User Logout" src="https://github.com/user-attachments/assets/bfc96ced-22e6-403c-bff6-fd4d592400bb" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/Deconnexion_ABTheroMap.mp4)
+
 Equipe : Emma Eveilleau, Kimsay Nacitas, Marion Turgault et Sarah Toubal 
 
