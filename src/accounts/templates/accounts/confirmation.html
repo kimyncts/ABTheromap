@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Confirmation - ABTheroMap{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/styleConfirmation.css' %}">
+{% endblock %}
+{% block content %}
+<div class="confirmation-container">
+    <h2 class="confirmation-title">Souhaitez-vous vous déconnecter ?</h2>
+    <p class="confirmation-text">Vous allez être déconnecté de votre session actuelle.</p>
+
+    <div class="confirmation-buttons">
+        <a href="{% url 'accounts-logout' %}" class="btn-logout">Se déconnecter</a>
+        <a href="{% url 'index' %}" class="btn-stay-logged-in">Rester connecté</a>
+    </div>
+</div>
+{% endblock %}
