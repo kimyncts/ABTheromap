@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Aide - ABTheroMap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/aide/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="aide-title">Documentation d'ABTheroMap</h1>
+<p class="sous-titre">Tout ce qu’il vous faut pour prendre en main l’outil et assurer le bon déroulement de vos analyses !</p>
+
+<p>
+    💡 Vous pouvez retrouver toute la documentation dans le manuel utilisateur →
+    <a href="{% static 'images/aide/manuel_utilisateur_ABTheroMap.pdf' %}" download="manuel_utilisateur_ABTheroMap.pdf" class="aide">ici</a>.
+</p>
+
+
+<section class="box">
+    <h2>Prérequis avant d'utiliser ABTheroMap</h2>
+    <p class="description">
+        ⚠️  ATTENTION  : avant d'utiliser l'outil, vous devez soumettre votre fichier de séquences à l’outil
+        <a href="https://www.imgt.org/" target ="_blank">IMGT / HighV-QUEST</a> afin d’obtenir le fichier de séquences
+        <code>3_Nt-sequences.txt</code>, indispensable pour l’analyse.
+    </p>
+</section>
+
+<!-- SOMMAIRE -->
+<div class="sommaire">
+  <h2>Sommaire</h2>
+  <ul class="sommaire-liste">
+    <li><a href="#etape1">Étape 1 : Analyse sur IMGT</a></li>
+    <li><a href="#etape2">Étape 2 : Connexion à ABTheroMap</a></li>
+    <li><a href="#etape3">Étape 3 : Configurer les paramètres</a></li>
+    <li><a href="#etape4">Étape 4 : Lancer l’analyse</a></li>
+    <li><a href="#etape5">Étape 5 : Affichage des résultats</a></li>
+    <li><a href="#etape6">Étape 6 : Téléchargement des résultats</a></li>
+    <li><a href="#etape7">Étape 7 : Historique des analyses</a></li>
+    <li><a href="#etape8">Étape 8 : Déconnexion</a></li>
+  </ul >
+</div>
+
+
+<!-- DEBUT -->
+<h3 id="etape1">Étape 1 : Analyse des séquences target sur IMGT HighV-QUEST</h3>
+<p class="etape-description">
+    La première étape consiste à soumettre les séquences obtenues par séquençage Sanger à
+    <strong>IMGT/HighV-QUEST</strong>, un outil spécialisé dans l’annotation des régions variables
+    des immunoglobulines (Ig) et des récepteurs des cellules T (TR), incluant les fragments de type scFv.
+    <p class="etape-description">💡 Rendez-vous sur le site officiel de l'outil IMGT → <a href="https://www.imgt.org/" class="aide" target="_blank" >ici</a>.</p>
+</p>
+
+<ol>
+    <li>Depuis l’accueil, cliquez sur <strong>"Tools"</strong>, puis sélectionnez <strong>IMGT/HighV-QUEST</strong>.</li>
+    <div class="captures-ligne">
+    <img src="{% static 'images/aide/IMG2.png' %}" alt="Page d’accueil : Cliquez sur Tools" class="capture">
+    <img src="{% static 'images/aide/IMG1.png' %}" alt="Choisir l'outil HighV-QUEST" class="capture">
+</div>
+    <li>Connectez-vous ou créez un compte gratuitement.</li>
+    <div class="captures-ligne">
+    <img src="{% static 'images/aide/IMG3.png' %}" alt="Connexion" class="capture">
+</div>
+    <li>Une fois connecté, vous serez redirigé vers le formulaire de soumission.</li>
+    <li>
+        Remplissez les champs suivants :
+        <ul>
+            <li><strong><em>"Analysis title"</em></strong> : nom que vous souhaitez donner à votre analyse</li>
+            <li><strong><em>"Species"</em></strong> : espèce concernée (<em>ex. : Homo sapiens</em>)</li>
+            <li><strong><em>"Receptor type or locus"</em></strong> : type de récepteur (Ig ou TR)</li>
+        </ul>
+        ✅Importez vos séquences au format <code>.fasta</code> ou <code>.fastq</code>, ou collez-les dans la zone prévue.<br>
+        ✅Cochez les options d’e-mail pour suivre l’état de l’analyse.<br>
+        ✅Conservez les paramètres par défaut, mais cochez <strong>"Yes"</strong> pour le paramètre
+        <em>“Analysis for single chain fragment (scFv)”</em>.
+    </li>
+    <div class="captures-ligne">
+        <img src="{% static 'images/aide/IMG4.png' %}" alt="Paramètres d’analyse" class="capture">
+        <img src="{% static 'images/aide/IMG5.png' %}" alt="Options supplémentaires" class="capture">
+    </div>
+    
+    <li>Cliquez sur <strong><em>"Start"</em></strong> pour lancer l’analyse.</li>
+    <li>Vous recevrez un mail lorsque l’analyse sera terminée (si vous avez coché cette option).</li>
+    <li>Allez dans l'onglet <strong><em>Analysis history</em></strong>.</li>
+    <div class="captures-ligne">
+    <img src="{% static 'images/aide/IMGT_historique.png' %}" alt="Connexion" class="capture">
+</div>
+    <li>Téléchargez le dossier compressé des résultats (dans la colone action).</li>
+    <li>Assurez-vous que le fichier <code>3_Nt-sequences.txt</code> est présent.</li>
+    <div class="captures-ligne">
+        <img src="{% static 'images/aide/IMG6.png' %}" alt="Résultat attendu" class="capture">
+    </div>
+</ol>
+
+<p> 💡  Voici une vidéo qui montre comment lancer l'analyse sur IMGT : </p>
+<div class="video-container">
+    <video controls>
+    <source src="{% static 'images/aide/IMGT_analyse.mp4' %}" type="video/mp4">
+    Votre navigateur ne prend pas en charge la vidéo.
+    </video>
+</div>
+
+
+<p> 💡  Voici une vidéo qui montre comment télécharger les résultats d'une analyse de l'outil IMGT : </p>
+<div class="video-container">
+    <video controls id="etape2">
+    <source src="{% static 'images/aide/IMGT_telechargement_fichiers.mp4' %}" type="video/mp4">
+    Votre navigateur ne prend pas en charge la vidéo.
+    </video>
+</div>
+
+<h3 >Étape 2 : Connexion à ABTheroMap</h3>
+<p class="etape-description">
+    Une fois l’annotation effectuée, lancez l'interface d'ABTheroMap et cliquez sur <strong><em>"Analyse"</em></strong> dans la barre de navigation.</p>
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/Acceuil.png' %}" alt="Accueil ABTheroMap" class="capture">
+</div>
+<ul>
+  <li>Si vous n’êtes pas connecté, vous serez redirigé vers la page de connexion.</li>
+  <li>En cas de première connexion, suivez le lien <strong>"Inscrivez-vous"</strong> pour créer un compte.</li>
+  <li>Une fois connecté, retournez dans <strong>"Analyse"</strong> pour accéder au formulaire.</li>
+</ul>
+
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/Connexion.png' %}" alt="Connexion utilisateur" class="capture">
+    <img src="{% static 'images/aide/Inscription.png' %}" alt="Inscription" class="capture">
+</div>
+
+<p class="etape-description">
+    Vous pouvez également vous connecter en cliquant sur <strong><em>"Connexion"</em></strong> dans la barre de navigation.</p>
+
+<ul>
+  <li>Vous serez redirigé vers un page permettant de choisir entre se connecter et s'inscrire.</li>
+  <li>Si vous possédez un compte, cliquez sur le bouton "Se connecter", vous serez redirigé vers la page de connection.</li>
+  <li>En cas de première connexion, cliquez sur le bouton "S'inscrire" pour créer un compte.</li>
+  <li>Une fois connecté, retournez dans <strong>"Analyse"</strong> pour accéder au formulaire.</li>
+</ul>
+
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/connexion_bouton.png' %}" alt="Connexion utilisateur" class="capture">
+</div>
+<p>💡  Voici une vidéo qui montre comment s'inscrire sur l'outil ABTheroMap : </p>
+<div class="video-container">
+    <video controls id="etape3">
+    <source src="{% static 'images/aide/inscription_ABTheroMap.mp4' %}" type="video/mp4">
+    Votre navigateur ne prend pas en charge la vidéo.
+    </video>
+</div>
+
+
+<h3 >Étape 3 : Configurer les paramètres d'alignement</h3>
+<p class="etape-description"> Vous arriverez sur une page contenant un formulaire à remplir. 
+    Ce formulaire permet d'importer vos données ainsi que de définir les paramètres que vous souhaitez utiliser pour l'alignement des séquences.</p>
+<ol>
+    <li>Indiquez un <strong>titre</strong> et une <strong>description</strong>.</li>
+    <li>Définissez les paramètres BLAST :</li>
+    <ul>
+        <li>Couverture minimale (%)</li>
+        <li>Valeur de <strong>E-value</strong></li>
+        <li>Nombre de <strong>gaps autorisés</strong></li>
+        <li>Longueur minimale d’alignement</li>
+        <li>Pourcentage d’identité</li>
+    </ul>
+    <li>Importez les fichiers :</li>
+    <ul>
+        <li><code>3_Nt-sequences.txt</code> d’IMGT (séquences Sanger)</li>
+        <li>Fichier FASTA des séquences NGS (base BLAST)</li>
+    </ul>
+</ol>
+ 
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/Formulaire_ABTheroMap.png' %}" alt="Formulaire d'analyse" class="capture">
+</div>
+
+<p class="etape-description"> Si les formats de fichiers importés ne sont pas correct et que vous lancez l'analyse, vous serez redirigé sur cette page de formulaire et un message d'erreur s'affichera</p>
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/formulaire_erreur.png' %}" alt="erreur formulaire d'analyse" class="capture">
+</div>
+
+<p>💡  Voici une vidéo qui montre comment se connecter et remplir le formulaire d'analyse sur ABTheroMap : </p>
+<div class="video-container" id="etape4">
+    <video controls>
+    <source src="{% static 'images/aide/analyse_outil.mp4' %}" type="video/mp4">
+    Votre navigateur ne prend pas en charge la vidéo.
+    </video>
+</div>
+
+<h3 >Étape 4 : Lancer l'analyse</h3>
+<p class="etape-description">
+    Cliquez sur <strong><em>"Lancer l’analyse"</em></strong>. Une page de chargement s’affiche avec le titre, la description
+    et l’heure de démarrage. Une fois terminé, un bouton <strong><em>"Voir analyse"</em></strong> apparait sur la page de chargement, cliquez dessus pour afficher les résultats.
+</p>
+
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/Rechargement.png' %}" alt="Chargement en cours" class="capture">
+    <img src="{% static 'images/aide/Voirresultats.png' %}" alt="Voir les résultats" class="capture" id="etape5">
+</div>
+
+<h3 >Étape 5 : Affichage des résultats</h3>
+<p class="etape-description"> Lorsque le bouton <strong><em>"Voir résultats</em></strong> apparait sur la page de chargement, l'alignement des séquences est terminé. 
+    Cliquez sur ce bouton pour visualiser les résultats</p>
+<p>La page de résultats contient :</p>
+    <ul>
+        <li>Un tableau de clones triés par nombre de correspondances (matches) décroissantes</li>
+    </ul>
+    <p> → Lorsque vous cliquez sur l'id d'un clone, vous serez redirigé automatiquement vers une page de résultats détaillés du clone.</p>
+    <p> Cette page contient :</p>
+    
+    <ul>
+        <li>Séquences VH et VL du clone selectionné</li>
+        <li>Diagramme de Venn  illustrant la répartition des séquences NGS alignées (VH uniquement, VL uniquement, ou les deux) </li>
+        <li>Deux tableaux BLAST (VH et VL) représentant les résultats d'alignement de ces séquences sur les séquences de la base de données</li>
+       <ul>
+            <li><code>qseqid</code> : identifiant de la séquence requête (query) utilisée pour l'alignement.</li>
+            <li><code>sseqid</code> : identifiant de la séquence cible (subject) avec laquelle la requête a été alignée.</li>
+            <li><code>Identité (%)</code> : pourcentage de similarité (identité) entre la séquence requête et cible.</li>
+            <li><code>Longueur</code> : longueur de l’alignement entre les deux séquences.</li>
+            <li><code>Mismatch</code> : nombre de différences (mismatches) entre les séquences alignées.</li>
+            <li><code>Gap open</code> : nombre de gaps introduits dans l’alignement.</li>
+            <li><code>qstart</code> : position de début de l’alignement sur la séquence requête.</li>
+            <li><code>qend</code> : position de fin de l’alignement sur la séquence requête.</li>
+            <li><code>sstart</code> : position de début de l’alignement sur la séquence cible.</li>
+            <li><code>send</code> : position de fin de l’alignement sur la séquence cible.</li>
+            <li><code>e-value</code> : probabilité d’obtenir cet alignement par hasard — plus elle est faible, plus l’alignement est significatif.</li>
+            <li><code>Bitscore</code> : score normalisé indiquant la qualité de l’alignement (plus il est élevé, mieux c’est).</li>
+            <li><code>qcovs</code> : pourcentage de la séquence requête couverte par l’alignement (Query Coverage) — couverture de l'alignement.</li>
+        </ul>
+    </ul>
+
+
+<div class="captures-ligne" >
+    <img src="{% static 'images/aide/Clones.png' %}" alt="Tableau des clones" class="capture">
+    <img src="{% static 'images/aide/Detailsseq.png' %}" alt="Détail des séquences" class="capture" >
+    <img src="{% static 'images/aide/ResultsBlast.png' %}" alt="Tableaux BLAST" class="capture" id="etape6">
+</div>
+
+<h3 >Étape 6 : Téléchargement des résultats</h3>
+<p class="etape-description" id="etape7">
+    Sur les pages de résultats, vous pouvez télécharger le diagramme de Venn au format <code>.png</code> et les tableaux de résultats aux formats <code>.csv</code> ou <code>.xlsx</code>.
+</p>
+
+<h3 >Étape 7 : Historique des analyses</h3>
+<p class="etape-description">
+    Grâce au système de connexion, chaque utilisateur dispose de son propre historique. 
+    En vous reconnectant à votre session, vous pouvez accéder à l’ensemble des analyses que vous avez effectuées depuis la création de votre compte.
+</p>
+    <p>✅Cliquez sur votre nom d’utilisateur en haut à droite et accédez à <strong><em>"Mon historique"</em></strong>.</p>
+    <p>✅Vous y trouverez le résumé de toutes vos analyses : date/heure de l'analyse, nom, description, paramètres d'alignement choisis, état de l'analyse et résultats.</p>
+    <p>✅Vous trouverez également pour chaque analyse, un émoicône corbeille "🗑️" permettant de supprimer l'analyse de l'historique. Une fois supprimée, cette action est irréversible, vous n'aurez plus accès à l'analyse supprimée.</p>
+
+
+<div class="captures-ligne" id="etape8">
+    <img src="{% static 'images/aide/Historique.png' %}" alt="Menu utilisateur" class="capture">
+    <img src="{% static 'images/aide/Histocomplet.png' %}" alt="Page historique" class="capture">
+</div>
+
+
+<h3 >Étape 8 : Déconnexion</h3>
+<p class="etape-description">
+    Pour vous deconnexter de votre session, deux choix s'offres à vous. </p>
+<ul>
+    <li>Cliquer sur votre nom puis sur le bouton <strong><em>"Déconnexion"</em></strong></li>
+    <div class="captures-ligne">
+    <img src="{% static 'images/aide/Deconnexion.png' %}" alt="Déconnexion" class="capture">
+</div>
+    <li>Cliquer sur le logo power ⏻ à côté de votre nom d'utilisateur</li>
+</ul>
+<p>Dans les deux cas, vous serez redirigé vers une page de confirmation. Cliquez sur <strong>"Oui"</strong> pour vous déconnecter de l’outil.</p>
+<div class="captures-ligne">
+    <img src="{% static 'images/aide/page_deconnexion.png' %}" alt="Déconnexion" class="capture">
+</div>
+
+
+<p>💡  Voici une vidéo qui montre comment se déconnecter de l'outil ABTheroMap : </p>
+<div class="video-container">
+    <video controls>
+        <source src="{% static 'images/aide/Deconnexion_ABTheroMap.mp4' %}" type="video/mp4">
+        Votre navigateur ne prend pas en charge la vidéo.
+        </video>
+    </div>
+
+
+{% endblock %}
