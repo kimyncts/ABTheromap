@@ -22,6 +22,14 @@ ABTheroMap facilite la comparaison entre des séquences issues de la plateforme 
 - Docker Compose ou Podman Compose
 - ncbi-blast+ [Télécharger ici](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.16.0+-x64-linux.tar.gz)
 
+## Gallery / Demo
 
+### 1. User Registration
+
+[![ABTheroMap Registration](docs/images/inscription.png)](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/inscription_ABTheroMap.mp4)
+
+### 2. Sequence Analysis
+
+[![ABTheroMap Sequence Analysis](docs/images/connexion.png)](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/analyse_ABTheroMap.mp4)
 Equipe : Emma Eveilleau, Kimsay Nacitas, Marion Turgault et Sarah Toubal 
 
