@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Connexion - ABTheroMap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h1 class="login-title">Bienvenue sur ABTheroMap</h1>
+
+    {% if user.is_authenticated %}
+        <p class="login-text">Connecté en tant que <strong>{{ user.username }}</strong></p>
+
+        <nav class="login-nav">
+            <ul>
+                <li><a href="{% url 'accounts-historique' %}" class="login-link">Mon historique</a></li>
+            </ul>
+        </nav>
+
+        <div class="login-buttons">
+            <a href="{% url 'accounts-confirmation' %}" class="btn-login">Déconnexion</a>
+        </div>
+    {% else %}
+        <p class="login-text">Veuillez vous connecter ou créer un compte pour continuer.</p>
+        <div class="login-buttons">
+            <a href="{% url 'accounts-login' %}" class="btn-login">Connexion</a>
+            <a href="{% url 'accounts-signup' %}" class="btn-login">S'inscrire</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
