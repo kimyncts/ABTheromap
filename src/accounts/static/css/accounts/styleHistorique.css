@@ -1,0 +1,84 @@
+/* Container principal pour l'historique */
+.history-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #fff0f2;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(233, 93, 123, 0.1);
+}
+
+/* Titre stylisé réutilisable */
+.form-title {
+    text-align: center;
+    color: #b22245;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+/* Tableau */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff7f8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(233, 93, 123, 0.1);
+}
+
+.history-table th, .history-table td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #f3d1d8;
+    color: #6a1b2d;
+}
+
+.history-table th {
+    background-color: #f7cdd5;
+    font-weight: bold;
+}
+
+.history-table tr:hover {
+    background-color: #fdebee;
+}
+
+.history-table td[colspan="4"] {
+    font-style: italic;
+    color: #999;
+}
+.history-table td:nth-child(5),
+.history-table th:nth-child(5) {
+    width: 220px;  /* Ajuste cette valeur à ton besoin */
+    min-width: 200px;
+    max-width: 300px;
+    white-space: normal; /* Permet les retours à la ligne */
+    word-break: break-word;
+}
+
+.result-cell {
+  text-align: center;
+}
+
+.status-link {
+  display: inline-flex;
+  align-items: center;
+  color: green;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.status-link:hover {
+  background-color: #d4f0dd;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 1.2em;
+}
