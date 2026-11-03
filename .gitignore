@@ -1,0 +1,30 @@
+#Environement virtuel
+.env
+env/
+venv/
+.venv/
+ENV/
+.django_env/
+
+# Fichier IDE
+.idea/
+.vscode/
+
+# Dossier pycache
+*.pyc
+__pycache__/
+*.log
+*.pot
+.Rhistory
+
+#Dossier Media
+media/
+
+#Fichier de base de données
+db.sqlite3
+
+#celery
+celerybeat-schedule*
+
+# Docker/Podman (pas d’images, pas de volumes)
+*.pid
