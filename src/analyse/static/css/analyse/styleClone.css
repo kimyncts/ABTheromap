@@ -1,0 +1,210 @@
+/* styleClone.css */
+
+main {
+    background-color: #fff7f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6a1b2d;
+    padding: 2rem;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #b22245;
+    margin-bottom: 1rem;
+}
+
+p {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+strong {
+    color: #8a1a36;
+}
+.header-clone-downloads {
+    display: flex;
+    justify-content: center; /* centrer horizontalement les enfants */
+    align-items: center; /* centrer verticalement */
+    flex-wrap: wrap;
+    gap: 2rem; /* espace entre les blocs */
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+/* Rendre le bloc clone-info centré et équilibré */
+.clone-info {
+    flex: 0 1 50%; /* moitié de l'espace, mais flexible */
+    max-width: 900px;
+    font-size: 1.8rem;
+    padding: 1.5rem 2rem;
+    
+    
+    text-align: left;
+    margin: 0 auto; /* centrer dans son espace */
+}
+
+/* Garder les boutons à droite avec taille minimale */
+.download-buttons {
+    flex: 0 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-end;
+}
+
+.btn-style {
+    background-color: #e64973;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(233, 93, 123, 0.15);
+}
+
+.btn-style:hover {
+    background-color: #c8385f;
+}
+
+/* Section séquences */
+.sequence-section {
+    background-color: #fff0f2;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(233, 93, 123, 0.1);
+    text-align: center;
+}
+
+/* Blocs <pre> pour affichage brut */
+.sequence-block {
+    background-color: #fdebee;
+    border-left: 5px solid #b22245;
+    color: #6a1b2d;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 1rem;
+    margin: 1rem auto 2rem auto;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.95rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Message si aucune séquence */
+.no-sequence {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+/* Conteneur central pour le bloc Venn */
+.venn-section {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff0f2;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(233, 93, 123, 0.1);
+    width: fit-content;
+    max-width: 90%;
+}
+
+/* Image du diagramme */
+.venn-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(173, 52, 81, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Alignement des boutons */
+.venn-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+
+/* Style des boutons */
+.venn-buttons button {
+    background-color: #e95d7b;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.venn-buttons button:hover {
+    background-color: #d04e6a;
+}
+
+/* Zones de séquences */
+.venn-section div[id^="vh_"],
+.venn-section div[id^="vl_"],
+.venn-section div[id^="both"] {
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #fdebee;
+    border-left: 4px solid #b22245;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    text-align: left;
+    color: #6a1b2d;
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+
+table {
+    width: 80%;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
+    background-color: #fff0f2;
+    box-shadow: 0 0 10px rgba(233, 93, 123, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+    width: 90%;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #f3d1d8;
+}
+
+th {
+    background-color: #f7cdd5;
+    color: #6a1b2d;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #fdebee;
+}
+
+main a{
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #ad3451;
+    text-decoration: none;
+    font-weight: bold;
+}
