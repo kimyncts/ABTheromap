@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Connexion - ABTheroMap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/styleLogin.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="form-title">Connexion</h1>
+
+    {% for message in messages %}
+        <p class="form-message">{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST" class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Se connecter" class="btn-login">
+    </form>
+
+    <p class="form-sub">Pas encore de compte ? <a href="{% url 'accounts-signup' %}">Inscrivez-vous</a></p>
+</div>
+{% endblock %}
