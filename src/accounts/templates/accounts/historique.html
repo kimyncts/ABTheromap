@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}Historique - ABTheroMap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/styleHistorique.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="history-container">
+  <h1 class="form-title">Historique des analyses</h1>
+  
+  <div class="table-container">
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>Date de l'analyse</th>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Status de validation</th>
+          <th>Paramètres BLAST</th>
+          <th>Résultats</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for analyse in analyses %}
+          <tr>
+            <td>{{ analyse.start_time|timezone:"Europe/Paris"|date:"d/m/Y H:i" }}</td>
+            <td>{{ analyse.name }}</td>
+            <td>{{ analyse.description }}</td>
+            <td>
+              {% if analyse.is_processing %}
+                En cours...
+              {% else %}
+                Terminé
+              {% endif %}
+            </td>
+            <td class="blast-params">
+              Coverage : {{ analyse.coverage }}%<br>
+              E-value : {{ analyse.e_value }}<br>
+              Gaps : {{ analyse.gaps }}<br>
+              Alignement : {{ analyse.alignment_length }}<br>
+              Identité : {{ analyse.perc_identity }}%
+            </td>
+            <td class="result-cell">
+              {% if not analyse.is_processing %}
+                <a href="{% url 'resultats_analyse' analyse.id %}" class="status-link">
+
+                  ✔️ Disponible
+                </a>
+              {% else %}
+                <span class="status-text">En cours...</span>
+              {% endif %}
+            </td>
+            <td>
+              <form method="post" action="{% url 'supprimer_analyse' analyse.id %}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette analyse ?');">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">🗑️</button>
+              </form>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6">Aucune analyse trouvée.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
