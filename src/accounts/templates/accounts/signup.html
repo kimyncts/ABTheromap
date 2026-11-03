@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inscription - ABTheroMap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/styleLogin.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="form-title">Créer mon compte</h1>
+
+    <form method="post" class="signup-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Je m'inscris !" class="btn-login">
+    </form>
+
+    <p class="form-sub">Déjà un compte ? <a href="{% url 'accounts-login' %}">Connectez-vous ici</a></p>
+</div>
+{% endblock %}
