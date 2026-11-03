@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Analyse - ABTheroMap{% endblock %}
+{% block extra_css %} 
+<link rel="stylesheet" href="{% static 'css/analyse/style.css' %}">{% endblock %}
+{% block extra_js %}
+{% endblock %}
+{% block content %}
+    <h1 class="analyse-title"> Nouvelle Analyse</h1>
+    <p class="analyse-subtitle">Importez vos séquences, choisissez vos paramètres d'alignements et lancez l'analyse !</p>
+    <form method="POST" enctype="multipart/form-data" class="analyse-form">
+        {% csrf_token %} <!--Protection avec un jeton CSRF-->
+        {% for field in form %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}">
+                {{ field.label }}
+                {% if field.help_text %}
+                    <span class="tooltip-container">
+                      &#9432;
+                      <span class="tooltip-text">{{ field.help_text }}</span>
+                    </span> <!-- Petit "i" en cercle -->
+                {% endif %}
+                </label>
+                {{ field }}
+                {% if field.errors %}
+                <div class="text-danger">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        <button type="submit" class="analyse-btn">Lancer l'analyse</button>
+    </form>
+
+{% endblock %}
