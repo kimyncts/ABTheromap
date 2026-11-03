@@ -1,0 +1,133 @@
+body {
+    background: linear-gradient(135deg, #f9f0f2, #fff);
+}
+
+.analyse-title {
+    font-family: 'Playfair Display', serif;
+    color:  rgb(175, 47, 68);
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.analyse-subtitle {
+    text-align: center;
+    color: #a14554;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.analyse-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 30px 20px 30px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(175, 47, 68, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.analyse-form label {
+    font-weight: bold;
+    color: #a14554;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.analyse-form input[type="text"],
+.analyse-form input[type="file"],
+.analyse-form select,
+.analyse-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e28d9d;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.analyse-form input:focus,
+.analyse-form select:focus,
+.analyse-form textarea:focus {
+    border-color: #ee667c;
+    outline: none;
+}
+
+.analyse-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 36px;
+    background: #ee667c;
+    color: #fff;
+    border: 2px solid #e28d9d;
+    border-radius: 30px; /* Ovale */
+    font-size: 1.1em;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(175, 47, 68, 0.08);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.analyse-btn:hover {
+    background: #e28d9d;
+    color: #fff;
+    transform: scale(1.05);
+    border-color: #ee667c;
+}
+
+.analyse-form input,
+.analyse-form select,
+.analyse-form textarea {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.analyse-form input:focus,
+.analyse-form select:focus,
+.analyse-form textarea:focus {
+    box-shadow: 0 0 8px rgba(238, 102, 124, 0.5);
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: #ee667c;
+  font-weight: bold;
+}
+
+.tooltip-text {
+  display: none; /* on cache complètement par défaut */
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 20px 20px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: normal;
+  max-width: 500rem;
+  z-index: 100;
+  text-align: left;
+}
+
+.tooltip-container:hover .tooltip-text {
+  display: block; /* affiche seulement au survol */
+}
+
+.errorlist {
+    color: blue;          /* Rouge foncé */
+    font-weight: bold;       /* Texte en gras */
+    font-size: 1.1em;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+}
