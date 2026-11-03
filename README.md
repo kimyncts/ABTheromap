@@ -30,7 +30,7 @@ ABTheroMap facilite la comparaison entre des séquences issues de la plateforme 
 
 ### Sequence Analysis
 
-[<img width="1846" height="808" alt="Sequence Analysis" src="https://github.com/user-attachments/assets/9cabb315-bf48-4cf7-bbae-c700eca7e472" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/analyse_ABTheroMap.mp4)
+[<img width="1846" height="808" alt="Sequence Analysis" src="https://github.com/user-attachments/assets/9cabb315-bf48-4cf7-bbae-c700eca7e472" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/analyse_outil.mp4)
 
 ### User Logout
 
