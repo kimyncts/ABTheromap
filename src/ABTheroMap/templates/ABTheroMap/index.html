@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil - ABTheroMap{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/ABTheroMap/style.css' %}">{% endblock %}
+
+
+{% block content %}
+<section class="welcome-section">
+    <h2 style="font-family: Playfair Display, serif;">Bienvenue sur ABTheroMap</h2>
+    <p>
+        ABTheroMap est un outil bio-informatique conçu pour analyser la fréquence d’occurrence d’un ensemble de séquences en les comparant à une base de données composée 
+        de séquences d’anticorps au format scFv, fournies par l’utilisateur.
+        Grâce à une interface simple et intuitive, découvrez comment lancer votre analyse !
+    </p>
+    <a href="#etapes" class="cta-button">En savoir plus</a>
+</section>
+
+<section class="objective-section">
+    <h2 class="section-title">Qu'est ce que l'outil ABTheroMap ?</h2>
+    <p>
+        ABTheroMap est une interface web développée dans le cadre du projet européen <a href="https://abcardionostics.eu/projects/" target="_blank" style="color: #8B4513; font-weight: bold; text-decoration: underline; text-decoration-color: #8B4513;">ABCardionostics</a>, coordonné par l’équipe Théranostic de l'athérosclérose 
+        du Centre de Résonance Magnétique des Systèmes Biologiques (CRMSB). Cete interface a pour objectif de fournir un outil accessible aux biologistes et chercheurs 
+        non spécialistes en bio-informatique, afin de faciliter l’analyse de séquences d’anticorps au format scFv, dans le cadre de l’étude des plaques d’athérome.
+     </p>
+
+</section>
+
+<section class="objective-section">
+    <h2 class="section-title">Fonctionnalités</h2>
+    <p>
+        ABTheroMap automatise l’extraction des domaines variables VH et VL à partir de séquences Sanger annotées via IMGT, puis effectue des alignements locaux 
+        avec des séquences issues du séquençage NGS en s’appuyant sur l’algorithme BLAST. L’interface permet d’importer facilement des fichiers, de définir des 
+        paramètres d’alignement personnalisés (E-value, couverture, longueur minimale, nombre de gaps autorisés) et de visualiser les résultats de manière claire 
+        et interactive. Les correspondances sont présentées sous forme de tableaux détaillant les identifiants, les scores d’alignement, les taux de couverture et 
+        les gaps observés, afin de permettre une sélection rapide des clones les plus pertinents.
+    </p>
+</section>
+         
+   
+
+
+<section class="etapes-section">
+    <h2 class="section-title">Les étapes d'ABTheroMap</h2>
+    <!-- Dynamic Steps Display -->
+    <div class="steps-container" id="etapes">
+        <div class="step">
+            <h3>Étape 1</h3>
+            <p>Séparation des séquences des domaines VH et VL des anticorps</p>
+        </div>
+        <div class="step">
+            <h3>Étape 2</h3>
+            <p>Alignements local avec BLAST</p>
+        </div>
+        <div class="step">
+            <h3>Étape 3</h3>
+            <p>Analyse et visualisation des résultats</p>
+        </div>
+    </div>
+</section>
+        
+{% endblock %}
