@@ -1,0 +1,191 @@
+main {
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fff;
+}
+
+.aide-title {
+    text-align: center;
+    color: rgb(175, 47, 68);
+    font-size: 2.8em;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.sous-titre {
+    text-align: center;
+    color: rgb(202, 78, 98);
+    font-size: 1.2em;
+    margin: 10px auto 40px auto;
+    max-width: 700px;
+}
+
+.sommaire {
+  background-color: #f5f5f5;
+  border-left: 6px solid #a02c3c;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.sommaire h2 {
+  color: #a02c3c;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.sommaire-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 50px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.sommaire-liste li {
+  flex: 1 1 220px; /* S’adapte à la taille de l’écran */
+  font-weight: bold;
+}
+
+.sommaire-liste a {
+  color: #a02c3c;
+  text-decoration: none;
+}
+
+.sommaire-list ul li a {
+    text-decoration: none;
+    color: rgb(189, 128, 138);
+}
+.sommaire-liste a:hover {
+  text-decoration: underline;
+}
+
+
+.box {
+    border-left: 6px solid #f39c12;
+    background-color: #fff8e1;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+h2, h3, h4, h5 {
+    color: rgb(175, 47, 68);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h2 { font-size: 2em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.2em; }
+
+.description,
+.etape-description {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.etape-description {
+    margin-bottom: 30px;
+}
+
+
+.etape-description {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-left: 4px solid rgb(175, 47, 68);
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+
+ol li {
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #333;
+    padding-left: 5px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Soulignement stylisé en marron */
+.aide  {
+    text-decoration: none;
+    border-bottom: 2px solid saddlebrown;
+    padding-bottom: 2px;
+    color: saddlebrown;
+    font-weight: 500;
+}
+
+/* Vidéos centrées avec responsive */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(100, 50, 50, 0.2);
+}
+
+/* Captures avec flèches */
+.captures-ligne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    position: relative;
+}
+
+.captures-ligne .capture {
+    width: 48%;
+    height: 350px;
+    border: 2px solid rgb(175, 47, 68);
+    border-radius: 8px;
+    object-fit: contain;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.captures-ligne .capture:hover {
+    transform: scale(1.03);
+}
+
+.captures-ligne .capture:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: rgb(175, 47, 68);
+}
+
+
+/* Responsive vidéo et flèches */
+@media screen and (max-width: 768px) {
+    .captures-ligne {
+        flex-direction: column;
+    }
+
+    .captures-ligne .capture:not(:last-child)::after {
+        content: none;
+    }
+
+    video {
+        width: 100%;
+    }
+}
