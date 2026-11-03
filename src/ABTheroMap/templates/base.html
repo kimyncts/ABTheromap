@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ABTheroMap{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/ABTheroMap/styleBase.css' %}">
+    <link rel="icon" href="{% static 'images/ABTheroMap/logo-ABTheroMap.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="{% url 'index' %}" class="logo-link">
+                <img src="{% static 'images/ABTheroMap/logo-ABTheroMap.png' %}" alt="ABTheroMap Logo" class="logo">
+                <h1>ABTheroMap</h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'analyse-index' %}">Analyse</a></li>
+                <li><a href="{% url 'aide-index' %}">Aide</a></li>
+                {% if user.is_authenticated %}    
+                <div class="user-info">
+                    <a href="{% url 'accounts-index' %}" class="username">{{ user.username }}</a>
+                    <a href="{% url 'accounts-confirmation' %}">
+                        <img src="{% static 'images/ABTheroMap/se-deconnecter.png' %}" alt="Icone de deconnexion" class="user-logo">
+                    </a>
+                </div>
+                {% else %}
+                    <li><a href="{% url 'accounts-index' %}">Connexion</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo1">
+                <img src="{% static 'images/ABTheroMap/logo-ABCardionostics2.png' %}" alt="AB Cardio Logo" class="logo-cardio">
+            </div>
+            <div class="footer-logo2">
+                <img src="{% static 'images/ABTheroMap/logo-UE.jpg' %}" alt="Funded by the European Union" class="logo-eu">
+                <p>Funded by the European Union</p>
+            </div>
+            <div class="footer-text">
+                <p>&copy; Mai 2025 ABTheroMap</p>
+                <p>Projet de Master 1 Bio-informatique</p>
+                <p>Université de Bordeaux</p>
+            </div>
+        </div>
+    </footer>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
