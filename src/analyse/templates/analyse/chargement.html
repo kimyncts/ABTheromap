@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+{% block title %}Chargement -ABTheroMap{% endblock %}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/analyse/styleLoad.css' %}">{% endblock %}
+
+{% block content %}
+<div class="analysis-status-container">
+    <h1 class="analysis-title">
+        {{ analysis.name }} <span class="analysis-time">- Débuté à {{ analysis.start_time|timezone:"Europe/Paris"|time:"H:i:s" }}</span>
+    </h1>
+
+    {% if analysis.is_processing %}
+        <div class="progress-message">
+            <div class="loader"></div>
+            <p>Traitement en cours...</p>
+            <meta http-equiv="refresh" content="2">  <!-- Rafraîchissement auto -->
+        </div>
+    {% else %}
+        <a href="{% url 'resultats_analyse' analysis.pk %}" class="btn result-btn">Voir résultats</a>
+    {% endif %}
+</div>
+{% endblock %}
