@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Résultats -ABTheroMap{% endblock %}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/analyse/styleResultats.css' %}">{% endblock %}
+{% block content %}
+<h2>Résultats de l'analyse : {{ analysis.name }}</h2>
+<p>Description : {{ analysis.description }}</p>
+
+<form method="get">
+    <label for="top">Nombre de clones à afficher :</label>
+    <input type="number" id="top" name="top" value="{{ top_n }}" min="1">
+    <button type="submit">Valider</button>
+</form>
+
+<table>
+    <thead>
+      <tr>
+        <th>Clone ID</th>
+        <th>Nombre de matchs</th>
+        <th>Matchs à 100%</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for clone_id, total, identique in top_clones %}
+      <tr>
+        <td><a href="{% url 'detail_clone' analysis.pk clone_id %}">{{ clone_id }}</a></td>
+        <td>{{ total }}</td>
+        <td>{{ identique }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<form action="{% url 'telecharger_excel' analysis.id %}" method="get">
+    <input type="hidden" name="top" value="{{ top_n }}">
+    
+    <label for="format">Choisir le format :</label>
+    <select name="format" id="format">
+        <option value="excel">Excel (.xlsx)</option>
+        <option value="csv">CSV (.csv)</option>
+    </select>
+    
+    <button type="submit">Télécharger</button>
+</form>
+
+{% endblock %}
+
+
