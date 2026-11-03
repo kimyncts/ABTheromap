@@ -23,5 +23,5 @@ ABTheroMap facilite la comparaison entre des séquences issues de la plateforme 
 - ncbi-blast+ [Télécharger ici](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.16.0+-x64-linux.tar.gz)
 
 
-
+Equipe : Emma Eveilleau, Kimsay Nacitas, Marion Turgault et Sarah Toubal 
 
