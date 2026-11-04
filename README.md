@@ -1,4 +1,4 @@
-# ABTheroMap
+# ABTheroMap - scfv-analysis-interface
 
 **ABTheroMap** est une interface web développée dans le cadre de leur projet de fin d’année pour le programme européen **ABCardionostics**, porté par l’équipe Théranostic de l’Athérosclérose du CRMSB (Centre de Résonance Magnétique des Systèmes Biologiques).
 
