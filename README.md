@@ -26,8 +26,7 @@ ABTheroMap facilite la comparaison entre des séquences issues de la plateforme 
 
 ### Full Demo
 
-[<img width="1679" height="877" alt="ABTM" src="https://github.com/user-attachments/assets/f52b370f-514b-4ed3-8889-170238aa99c9" />]
-(https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/ABTM.mp4)
+[<img width="1679" height="877" alt="ABTheroMap" src="https://github.com/user-attachments/assets/f52b370f-514b-4ed3-8889-170238aa99c9" />](https://github.com/kimyncts/ABTheromap/raw/refs/heads/main/src/aide/static/images/aide/ABTM.mp4)
 
 ### User Registration
 
